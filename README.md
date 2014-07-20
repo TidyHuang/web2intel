@@ -3,7 +3,16 @@ web2intel
 
 ###About
 
-Script to fetch RSS feeds and raw HTML pages to write out IP and domain data.
+Script to fetch malicious domain and URL lists from sites that publish RSS feeds or raw HTML pages.
+
+###Supported Lists
+
+* The <a href="https://sslbl.abuse.ch/sslbl.rss">Abuse.ch SSL block list</a>
+* The Quttera <a href="http://quttera.com/lists/malicious">malicious</a>, <a href="http://quttera.com/lists/suspicious">suspicious</a>, and <a href="http://quttera.com/lists/suspicious">potentially suspicious</a> domains database
+* <a href="http://osint.bambenekconsulting.com/manual/goz-domlist.txt">John Bambenek's</a> <a href="http://osint.bambenekconsulting.com/feeds/goz-domlist.txt">Gameover Zeus list</a>
+* DNS-BH – <a href="http://mirror1.malwaredomains.com/files/domains.txt">Malware Domain Blocklist</a>
+* SANS Internet Storm Center <a href="https://isc.sans.edu/feeds/suspiciousdomains_Low.txt">LOW</a>, <a href="https://isc.sans.edu/feeds/suspiciousdomains_Medium.txt">MEDIUM</a>, and <a href="https://isc.sans.edu/feeds/suspiciousdomains_High.txt">HIGH</a> confidence block lists
+* Sucuri Security's scanner <a href="http://labs.sucuri.net/?malware">identified iframe, conditional redirection, and encoded javascript web site list</a>
 
 ###Usage
 
@@ -27,10 +36,10 @@ Script to fetch RSS feeds and raw HTML pages to write out IP and domain data.
 
 	<extras>
 	--url		- Extract the fully quaified domain name (FQDN), protocol, port, and directory structure (if available)
-	--details	- Addtional inline details
+	--details	- Addtional (often original data format) details
 
 	[Example]
-	$ <em>./web2intel.rb --q_mal --url$ ./web2intel.rb --q_mal --url</em>
+	$ ./web2intel.rb --q_mal --url$ ./web2intel.rb --q_mal --url
 	#Title: Quttera Malicious Domains Database
 	#2014-07-20 14:53:55 -0700
 	http://www.polipak.rs:80
