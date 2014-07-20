@@ -85,6 +85,6 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 
 ###Support
 
-For any questions, bugs, or concerns, please use the GitHub issue submission system and/or reach out to <a href="twitter.com/andrewsmhay">@andrewsmhay</a> on Twitter.
+For any questions, bugs, or concerns, please use the GitHub issue submission system and/or reach out to @andrewsmhay on Twitter.
 
 (C) Andrew Hay, 2014
