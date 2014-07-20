@@ -1,11 +1,11 @@
 web2intel
 =========
 
-===About
+###About
 
 Script to fetch RSS feeds and raw HTML pages to write out IP and domain data.
 
-===Usage
+###Usage
 
 	./web2intel.rb <option> <extras>
 
@@ -30,9 +30,31 @@ Script to fetch RSS feeds and raw HTML pages to write out IP and domain data.
 	--details	- Addtional inline details
 
 	[Example]
-	./web2intel.rb --q_mal --url
+	$ <em>./web2intel.rb --q_mal --url$ ./web2intel.rb --q_mal --url</em>
+	#Title: Quttera Malicious Domains Database
+	#2014-07-20 14:53:55 -0700
+	http://www.polipak.rs:80
+	http://me1.in:80
+	http://xsr-ro.eu:80
+	http://pokezot.ddnsking.com:80
+	http://demo.ovh.eu:80
+	http://www.clearprog.de:80
+	http://www.zorrospen.com:80
+	http://www.falcondns.com:80
+	http://www.shopurbain.com:80
+	http://www.youareanidiot.org:80
+	http://www.zahf.de:80
+	http://www.ttbcbd.com:80
+	http://shutter-bug.net:80
+	http://thewini.net:80
+	http://bigfootevidence.blogspot.de:80
+	http://travel.spotcoolstuff.com:80
+	http://d-carauto.blogspot.nl:80
+	http://www.facegotours.com:80
+	http://dragosnicu.ro:80
+	http://www.pasadayiogullari.com.tr:80
 
-===Support
+###Support
 
 For any questions, bugs, or concerns, please use the GitHub issue submission system and/or reach out to <a href="twitter.com/andrewsmhay">@andrewsmhay</a> on Twitter.
 
