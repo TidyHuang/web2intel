@@ -38,30 +38,50 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	--url		- Extract the fully quaified domain name (FQDN), protocol, port, and directory structure (if available)
 	--details	- Addtional (often original data format) details
 
-	[Example]
-	$ ./web2intel.rb --q_mal --url$ ./web2intel.rb --q_mal --url
-	#Title: Quttera Malicious Domains Database
-	#2014-07-20 14:53:55 -0700
-	http://www.polipak.rs:80
-	http://me1.in:80
-	http://xsr-ro.eu:80
-	http://pokezot.ddnsking.com:80
-	http://demo.ovh.eu:80
-	http://www.clearprog.de:80
-	http://www.zorrospen.com:80
-	http://www.falcondns.com:80
-	http://www.shopurbain.com:80
-	http://www.youareanidiot.org:80
-	http://www.zahf.de:80
-	http://www.ttbcbd.com:80
-	http://shutter-bug.net:80
-	http://thewini.net:80
-	http://bigfootevidence.blogspot.de:80
-	http://travel.spotcoolstuff.com:80
-	http://d-carauto.blogspot.nl:80
-	http://www.facegotours.com:80
-	http://dragosnicu.ro:80
-	http://www.pasadayiogullari.com.tr:80
+####Example 1 - Domains only
+
+	$ ./web2intel.rb --sucuri_iframe
+	#Title: Sucuri Research Labs Hidden iframes list
+	#2014-07-20 15:08:14 -0700
+	ads.rzb.ir
+	www.scs.tv
+	gvlktdfay.ddns.info
+	38hartrobertsroad.com
+	www.bmconsulting.in
+	niu-sae.com
+	pgcsolutions.com.au
+	sterlinghealthmcs.com
+	gamedev.raconsultants.net
+	billing.zabiyaka.org
+	orion.martasegura.com
+	nioxox.nodoclender.com
+	joomla.philae.net
+	it.altervista.org
+	guessworkhiking.ru
+	1tvlive.in
+
+####Example 2 - Full URLs
+
+	$ ./web2intel.rb --sucuri_iframe --urls
+	#Title: Sucuri Research Labs Hidden iframes list
+	#2014-07-20 15:08:42 -0700
+	http://ads.rzb.ir/image.php?size_id=7
+	http://www.scs.tv/wp-content/themes/twentyeleven/colors/update.php
+	http://gvlktdfay.ddns.info/nighttrend.cgi?8
+	http://38hartrobertsroad.com/wp-content/plugins/rotr
+	http://www.bmconsulting.in/
+	http://niu-sae.com/stats.php
+	http://pgcsolutions.com.au/pRN9XvYP.php
+	http://sterlinghealthmcs.com/go.php\
+	http://gamedev.raconsultants.net/ok.php
+	http://billing.zabiyaka.org/?2
+	http://orion.martasegura.com/configuration.php
+	http://nioxox.nodoclender.com:13014/poll/novell.php?rssfeed=41
+	http://joomla.philae.net/blog.php
+	http://it.altervista.org/group/child_blog.php?group=6
+	http://guessworkhiking.ru/maxstacksizedetracted.cgi?8
+	http://1tvlive.in/embed/main.php
+	http://129.121.235.130/Home/index.php
 
 ###Support
 
