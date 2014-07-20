@@ -62,7 +62,7 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 
 ####Example 2 - Full URLs
 
-	$ ./web2intel.rb --sucuri_iframe --urls
+	$ <b>./web2intel.rb --sucuri_iframe --urls</b>
 	#Title: Sucuri Research Labs Hidden iframes list
 	#2014-07-20 15:08:42 -0700
 	http://ads.rzb.ir/image.php?size_id=7
