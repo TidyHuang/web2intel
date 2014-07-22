@@ -29,6 +29,7 @@ class Urls
 		def isc_med_url; 'https://isc.sans.edu/feeds/suspiciousdomains_Medium.txt'; end
 		def isc_high_url; 'https://isc.sans.edu/feeds/suspiciousdomains_High.txt'; end
 		def sucuri_url; 'http://labs.sucuri.net/?malware'; end
+		def webins_url; 'http://app.webinspector.com/public/recent_detections'; end
 	end
 end
 
@@ -65,6 +66,7 @@ class Regex
 		def sucuri_spam; /\-\-sucuri\_spam/; end
 		def sucuri_js; /\-\-sucuri\_js/; end
 		def all; /\-\-all/; end
+		def webins; /\-\-webins/; end
 	end
 end
 
@@ -236,6 +238,16 @@ elsif ARGV[0] =~ Regex.sucuri_js
    		end
 	end
 
+elsif ARGV[0] =~ Regex.webins
+	page = Nokogiri::HTML(open(Urls.webins_url))
+	puts "#Title: Web Inspector Unsafe Site list"
+	puts Msg.time_head
+	page.xpath('//table[1]//tr').each do |cell|
+		if Regex.reg.match("#{cell.text.strip}") != nil  
+   			puts Regex.reg.match("#{cell.text.strip}")
+   		end
+	end
+
 elsif ARGV[0] =~ Regex.all
 	puts "Not yet implemented..."
 	
@@ -256,6 +268,7 @@ else puts "Invalid command...
 	--sucuri_iframe		- Sucuri scanner identified iframe compromised web site list
 	--sucuri_redirect	- Sucuri scanner identified conditional redirections list (based on user agents or referers)
 	--sucuri_js			- Sucuri scanner identified encoded javascript (redirecting to blackhole and other exploit kits) or to build a remote call list
+	--webins 			- Comodo Web Inspector malicious, suspicious content, and malware site list
 
 	--all 		- Generate a master list of all domains
 
