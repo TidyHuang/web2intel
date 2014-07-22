@@ -31,6 +31,8 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	--sucuri_iframe		- Sucuri scanner identified iframe compromised web site list
 	--sucuri_redirect	- Sucuri scanner identified conditional redirections list (based on user agents or referers)
 	--sucuri_js			- Sucuri scanner identified encoded javascript (redirecting to blackhole and other exploit kits) or to build a remote call list
+	--webins 			- Comodo Web Inspector malicious, suspicious content, and malware site list
+
 
 	--all 		- Generate a master list of all domains
 
