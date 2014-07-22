@@ -13,6 +13,7 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 * DNS-BH – <a href="http://mirror1.malwaredomains.com/files/domains.txt">Malware Domain Blocklist</a>
 * SANS Internet Storm Center <a href="https://isc.sans.edu/feeds/suspiciousdomains_Low.txt">LOW</a>, <a href="https://isc.sans.edu/feeds/suspiciousdomains_Medium.txt">MEDIUM</a>, and <a href="https://isc.sans.edu/feeds/suspiciousdomains_High.txt">HIGH</a> confidence block lists
 * Sucuri Security's scanner <a href="http://labs.sucuri.net/?malware">identified iframe, conditional redirection, and encoded javascript web site list</a>
+* <a href="http://app.webinspector.com/public/recent_detections">Comodo Web Inspector</a> contains some of websites which host malicious, suspicious content and malware files. It is updated every 60 mins. 
 
 ###Usage
 
@@ -84,6 +85,111 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	http://guessworkhiking.ru/maxstacksizedetracted.cgi?8
 	http://1tvlive.in/embed/main.php
 	http://129.121.235.130/Home/index.php
+
+####Example 3 - Details
+	$ ./web2intel.rb --q_mal --details
+	#Title: Quttera Malicious Domains Database
+	#2014-07-22 08:02:36 -0700
+	[Domain]:http://mell.hu:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 14:52:52 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://biopure.in:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 14:33:20 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://mmadawgs.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 14:16:55 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://adaklikkoyunfiyatlari.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:46:52 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://dancersbook.net:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:35:05 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://naghersamajhospital.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:18:17 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://downloadscenter.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:15:14 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://realgames.pt:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:14:48 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://andriussprindys.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:12:07 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://schgt.cn:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:10:41 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://darks.hotmail.ru:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 13:06:17 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://vacurect.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 12:40:52 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://isecurity.info:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 12:34:48 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://hovawarte-vom-ostertal.de:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 12:26:41 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://www.cominet.co.kr:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:41:06 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://butchnlucy.com:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:16:35 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://nikom.in:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:13:08 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://haliax.in:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:05:12 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://av-tek.in:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:03:03 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
+	[Domain]:http://aifs.in:80
+	                                [Type]:malicious
+	                                [Time]:Tue Jul 22 11:00:16 2014
+	                                [Report]:View website scan report
+	                                [Anti malware monitoring]:Start monitoring this website
 
 ###Support
 
