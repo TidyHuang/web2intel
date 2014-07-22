@@ -35,8 +35,8 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	--all 		- Generate a master list of all domains
 
 	<extras>
-	--url		- Extract the fully quaified domain name (FQDN), protocol, port, and directory structure (if available)
-	--details	- Addtional (often original data format) details
+	--url		- Extract the fully qualified domain name (FQDN), protocol, port, and directory structure (if available)
+	--details	- Additional (often original data format) details
 
 ####Example 1 - Domains only
 
