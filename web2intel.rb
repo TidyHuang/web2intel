@@ -9,6 +9,8 @@ require './lib/urls.rb'
 require './lib/regex.rb'
 require './lib/msg.rb'
 
+#require './lib/local_creds.rb'
+
 time = Time.new
 
 commands = []

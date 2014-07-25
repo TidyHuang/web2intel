@@ -33,13 +33,17 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	--sucuri_redirect	- Sucuri scanner identified conditional redirections list (based on user agents or referers)
 	--sucuri_js			- Sucuri scanner identified encoded javascript (redirecting to blackhole and other exploit kits) or to build a remote call list
 	--webins 			- Comodo Web Inspector malicious, suspicious content, and malware site list
-
+	--twitter			- Twitter username (e.g. andrewsmhay). Do not prepend the '@' symbol
 
 	--all 		- Generate a master list of all domains
 
 	<extras>
-	--url		- Extract the fully qualified domain name (FQDN), protocol, port, and directory structure (if available)
-	--details	- Additional (often original data format) details
+	--url		- Extract the fully quaified domain name (FQDN), protocol, port, and directory structure (if available)
+	--details	- Addtional inline details
+
+	(C) Andrew Hay, 2014
+	http://www.andrewhay.ca
+	https://twitter.com/andrewsmhay
 
 ####Example 1 - Domains only
 
@@ -105,91 +109,56 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	                                [Time]:Tue Jul 22 14:16:55 2014
 	                                [Report]:View website scan report
 	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://adaklikkoyunfiyatlari.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:46:52 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://dancersbook.net:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:35:05 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://naghersamajhospital.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:18:17 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://downloadscenter.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:15:14 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://realgames.pt:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:14:48 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://andriussprindys.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:12:07 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://schgt.cn:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:10:41 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://darks.hotmail.ru:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 13:06:17 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://vacurect.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 12:40:52 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://isecurity.info:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 12:34:48 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://hovawarte-vom-ostertal.de:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 12:26:41 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://www.cominet.co.kr:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:41:06 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://butchnlucy.com:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:16:35 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://nikom.in:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:13:08 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://haliax.in:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:05:12 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://av-tek.in:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:03:03 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
-	[Domain]:http://aifs.in:80
-	                                [Type]:malicious
-	                                [Time]:Tue Jul 22 11:00:16 2014
-	                                [Report]:View website scan report
-	                                [Anti malware monitoring]:Start monitoring this website
+
+####Example 4 - Twitter
+	$ ./web2intel.rb --twitter InternetBadness
+	#Title: Twitter-based intel from twitter.com/InternetBadness
+	#2014-07-25 09:08:18 -0700
+	93.174.93.218
+	74.82.47.53
+	218.77.79.43
+	199.87.232.182
+	74.82.47.5
+	93.174.93.218
+	212.83.187.182
+	212.83.187.182
+	218.77.79.43
+	93.174.93.218
+	31.214.169.85
+	31.214.169.85
+	74.82.47.61
+	124.232.142.220
+	173.208.186.130
+	173.208.186.130
+	107.183.16.70
+	107.183.16.70
+	218.77.79.43
+	74.82.47.57
+
+####Example 5 - Twitter Details
+	$ ./web2intel.rb --twitter InternetBadness --details
+	#Title: Twitter-based intel from twitter.com/InternetBadness
+	#2014-07-25 09:09:07 -0700
+	10:23:49.0823 93.174.93.218-&gt;HPKMKE02:21320-ET DROP Dshield Block Listed Source group 1
+	10:49:47.7372 74.82.47.53-&gt;HPKCAK01:17-ET DROP Dshield Block Listed Source group 1
+	10:28:54.0085 218.77.79.43-&gt;HPKCAK01:443-ET DROP Dshield Block Listed Source group 1
+	11:11:48.1173 199.87.232.182-&gt;HPKLAX01:1080-ET CINS Active Threat Intelligence Poor Reputation IP TCP group 35
+	10:55:54.5286 74.82.47.5-&gt;HPKLAX01:17-ET DROP Dshield Block Listed Source group 1
+	10:22:08.2686 93.174.93.218-&gt;HPKLAX01:21320-ET DROP Dshield Block Listed Source group 1
+	10:20:03.1186 212.83.187.182-&gt;HPKLAX01:5060-ET SCAN Sipvicious Scan
+	10:20:03.1186 212.83.187.182-&gt;HPKLAX01:5060-ET SCAN Sipvicious User-Agent Detected (friendly-scanner)
+	10:40:06.9590 218.77.79.43-&gt;HPKBUF01:8080-ET DROP Dshield Block Listed Source group 1
+	10:27:09.9757 93.174.93.218-&gt;HPKBUF01:21320-ET DROP Dshield Block Listed Source group 1
+	10:16:07.3205 31.214.169.85-&gt;HPKBUF01:5060-ET SCAN Sipvicious Scan
+	10:16:07.3205 31.214.169.85-&gt;HPKBUF01:5060-ET SCAN Sipvicious User-Agent Detected (friendly-scanner)
+	10:04:44.5817 74.82.47.61-&gt;HPKBUF01:17-ET DROP Dshield Block Listed Source group 1
+	10:04:59.0997 124.232.142.220-&gt;HPKCAK01:53-ET DROP Dshield Block Listed Source group 1
+	09:46:30.1326 173.208.186.130-&gt;HPKCAK01:5060-ET SCAN Sipvicious Scan
+	09:46:30.1326 173.208.186.130-&gt;HPKCAK01:5060-ET SCAN Sipvicious User-Agent Detected (friendly-scanner)
+	09:19:29.3871 107.183.16.70-&gt;HPKCAK01:5060-ET SCAN Sipvicious Scan
+	09:19:29.3871 107.183.16.70-&gt;HPKCAK01:5060-ET SCAN Sipvicious User-Agent Detected (friendly-scanner)
+	09:31:33.6652 218.77.79.43-&gt;HPKLAX01:443-ET DROP Dshield Block Listed Source group 1
+	09:45:48.2193 74.82.47.57-&gt;ROLROP01:17-ET DROP Dshield Block Listed Source group 1
 
 ###Support
 
