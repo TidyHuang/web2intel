@@ -4,14 +4,17 @@ require 'open-uri'
 require 'optparse'
 require 'nokogiri'
 require 'twitter'
+require 'json'
 require './lib/creds.rb'
 require './lib/urls.rb'
 require './lib/regex.rb'
 require './lib/msg.rb'
+require 'public_suffix'
 
 #require './lib/local_creds.rb'
 
 time = Time.new
+zray = []
 
 commands = []
 ARGV.each {|arg| commands << arg}
@@ -31,6 +34,31 @@ if ARGV[0] =~ Regex.sslbl
 	end
 end
 
+
+####WORKING######
+
+elsif ARGV[0] =~ Regex.mta
+	if ARGV[1] != nil
+		puts Msg.url_option
+	else open(Urls.malware_ta) do |rss|
+	  feed = RSS::Parser.parse(rss)
+	  puts "#Title: #{feed.channel.description}"
+	  puts Msg.time_head
+	  feed.items.each do |item|
+	  	page = Nokogiri::HTML(open(item.link))
+	  	page.xpath('//ul//li').each do |cell|
+	  		if PublicSuffix.valid?("#{cell.text.strip}") && "#{cell.text.strip}" !~ /\.zip/
+	  		#if "#{cell.text.strip}" =~ /\.pcap/ || "#{cell.text.strip}" =~ /\.exe/ || "#{cell.text.strip}" =~ /\.htm/ || "#{cell.text.strip}" =~ /\.zip/ || "#{cell.text.strip}" =~ /\.php/ || "#{cell.text.strip}" =~ /\.js/ || "#{cell.text.strip}" =~ /\.csv/
+	  		#else 
+	  			zray << Regex.reg.match("#{cell.text.strip}").to_s
+	  		end
+	  	end
+	  end
+	end
+	puts zray.uniq.reject &:empty?
+end
+
+############
 
 elsif ARGV[0] =~ Regex.qmal
 	page = Nokogiri::HTML(open(Urls.quttera_mal_url))
@@ -212,6 +240,21 @@ elsif ARGV[0] =~ Regex.tweet
 			end
 		end
 end
+
+
+elsif ARGV[0] =~ Regex.ptank
+	if ARGV[1] != nil
+		puts "#Title: OpenDNS PhishTank Domains"
+		puts Msg.time_head
+		buffer = open(Urls.phishtank).read
+ 		# convert JSON data into a hash
+		result = JSON.parse(buffer)
+ 		puts result
+ 		#trends = result['url']
+		#trends.each do |subject|
+  		#	puts subject['url']
+		#end
+	end
 
 elsif ARGV[0] =~ Regex.all
 	puts "Not yet implemented..."

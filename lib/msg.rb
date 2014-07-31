@@ -17,6 +17,7 @@ Invalid command...
 --q_pot 			- The Quttera potentially suspicious database
 --goz 				- Gameover Zeus list
 --mwdoms 			- DNS-BH – Malware Domain Blocklist
+--malware_ta		- Malware-Traffic-Analysis.net domains
 --isc_low			- SANS Internet Storm Center LOW confidence block list
 --isc_med			- SANS Internet Storm Center MEDIUM confidence block list
 --isc_high			- SANS Internet Storm Center HIGH confidence block list

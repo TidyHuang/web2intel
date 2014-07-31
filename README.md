@@ -5,16 +5,6 @@ web2intel
 
 Script to fetch malicious domain and URL lists from sites that publish RSS feeds or raw HTML pages.
 
-###Supported Lists
-
-* The <a href="https://sslbl.abuse.ch/sslbl.rss">Abuse.ch SSL block list</a>
-* The Quttera <a href="http://quttera.com/lists/malicious">malicious</a>, <a href="http://quttera.com/lists/suspicious">suspicious</a>, and <a href="http://quttera.com/lists/suspicious">potentially suspicious</a> domains database
-* <a href="http://osint.bambenekconsulting.com/manual/goz-domlist.txt">John Bambenek's</a> <a href="http://osint.bambenekconsulting.com/feeds/goz-domlist.txt">Gameover Zeus list</a>
-* DNS-BH – <a href="http://mirror1.malwaredomains.com/files/domains.txt">Malware Domain Blocklist</a>
-* SANS Internet Storm Center <a href="https://isc.sans.edu/feeds/suspiciousdomains_Low.txt">LOW</a>, <a href="https://isc.sans.edu/feeds/suspiciousdomains_Medium.txt">MEDIUM</a>, and <a href="https://isc.sans.edu/feeds/suspiciousdomains_High.txt">HIGH</a> confidence block lists
-* Sucuri Security's scanner <a href="http://labs.sucuri.net/?malware">identified iframe, conditional redirection, and encoded javascript web site list</a>
-* <a href="http://app.webinspector.com/public/recent_detections">Comodo Web Inspector</a> contains some of websites which host malicious, suspicious content and malware files. It is updated every 60 mins. 
-
 ###Usage
 
 	./web2intel.rb <option> <extras>
@@ -26,6 +16,7 @@ Script to fetch malicious domain and URL lists from sites that publish RSS feeds
 	--q_pot 			- The Quttera potentially suspicious database
 	--goz 				- Gameover Zeus list
 	--mwdoms 			- DNS-BH – Malware Domain Blocklist
+	--malware_ta		- Malware-Traffic-Analysis.net domains
 	--isc_low			- SANS Internet Storm Center LOW confidence block list
 	--isc_med			- SANS Internet Storm Center MEDIUM confidence block list
 	--isc_high			- SANS Internet Storm Center HIGH confidence block list

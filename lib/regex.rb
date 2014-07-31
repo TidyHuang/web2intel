@@ -33,6 +33,8 @@ class Regex
 		def sucuri_js; /\-\-sucuri\_js/; end
 		def all; /\-\-all/; end
 		def webins; /\-\-webins/; end
-		def tweet; /\-\-twitter/; end 
+		def tweet; /\-\-twitter/; end
+		def mta; /\-\-malware_ta/; end
+		def ptank; /\-\-phishtank/; end
 	end
 end
