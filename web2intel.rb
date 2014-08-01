@@ -10,12 +10,13 @@ require './lib/urls.rb'
 require './lib/regex.rb'
 require './lib/msg.rb'
 require 'public_suffix'
+require 'awesome_print'
 
 #require './lib/local_creds.rb'
 
 time = Time.new
 zray = []
-
+result = []
 commands = []
 ARGV.each {|arg| commands << arg}
 
@@ -34,10 +35,7 @@ if ARGV[0] =~ Regex.sslbl
 	end
 end
 
-
-####WORKING######
-
-elsif ARGV[0] =~ Regex.mta
+elsif ARGV[0] =~ Regex.mta ####WORKING####
 	if ARGV[1] != nil
 		puts Msg.url_option
 	else open(Urls.malware_ta) do |rss|
@@ -48,8 +46,6 @@ elsif ARGV[0] =~ Regex.mta
 	  	page = Nokogiri::HTML(open(item.link))
 	  	page.xpath('//ul//li').each do |cell|
 	  		if PublicSuffix.valid?("#{cell.text.strip}") && "#{cell.text.strip}" !~ /\.zip/
-	  		#if "#{cell.text.strip}" =~ /\.pcap/ || "#{cell.text.strip}" =~ /\.exe/ || "#{cell.text.strip}" =~ /\.htm/ || "#{cell.text.strip}" =~ /\.zip/ || "#{cell.text.strip}" =~ /\.php/ || "#{cell.text.strip}" =~ /\.js/ || "#{cell.text.strip}" =~ /\.csv/
-	  		#else 
 	  			zray << Regex.reg.match("#{cell.text.strip}").to_s
 	  		end
 	  	end
@@ -58,9 +54,7 @@ elsif ARGV[0] =~ Regex.mta
 	puts zray.uniq.reject &:empty?
 end
 
-############
-
-elsif ARGV[0] =~ Regex.qmal
+elsif ARGV[0] =~ Regex.qmal ####WORKING####
 	page = Nokogiri::HTML(open(Urls.quttera_mal_url))
 	puts "#Title: Quttera Malicious Domains Database"
 	puts Msg.time_head
@@ -74,7 +68,7 @@ elsif ARGV[0] =~ Regex.qmal
    		end
 	end
 
-elsif ARGV[0] =~ Regex.qsus
+elsif ARGV[0] =~ Regex.qsus ####WORKING####
 	page = Nokogiri::HTML(open(Urls.quttera_sus_url))
 	puts "#Title: Quttera Suspicious Domains Database"
 	puts Msg.time_head
@@ -88,7 +82,7 @@ elsif ARGV[0] =~ Regex.qsus
    		end
 	end
 
-elsif ARGV[0] =~ Regex.qpot
+elsif ARGV[0] =~ Regex.qpot ####WORKING####
 	page = Nokogiri::HTML(open(Urls.quttera_potsus_url))
 	puts "#Title: Quttera Potentially Suspicious Domains Database"
 	puts Msg.time_head
@@ -101,7 +95,7 @@ elsif ARGV[0] =~ Regex.qpot
    		end
 	end
 
-elsif ARGV[0] =~ Regex.goz
+elsif ARGV[0] =~ Regex.goz ####WORKING####
 	page = Nokogiri::HTML(open(Urls.goz))
 	puts "#Gameover Zeus Domain List"
 	puts Msg.time_head
@@ -113,7 +107,7 @@ elsif ARGV[0] =~ Regex.goz
    		end
 	end	
 
-elsif ARGV[0] =~ Regex.mwdoms
+elsif ARGV[0] =~ Regex.mwdoms ####WORKING####
 	puts "#DNS-BH – Malware Domain Blocklist"
 	puts Msg.time_head
 	open(Urls.mwdoms)  {|f|
@@ -133,7 +127,7 @@ elsif ARGV[0] =~ Regex.isc_low
 		end
 	end
 
-elsif ARGV[0] =~ Regex.isc_med
+elsif ARGV[0] =~ Regex.isc_med ####WORKING####
 	puts "#SANS Internet Storm Center MEDIUM confidence block list"
 	puts Msg.time_head
 	page = open(Urls.isc_med_url)
@@ -147,7 +141,7 @@ elsif ARGV[0] =~ Regex.isc_med
 		end
 	end
 
-elsif ARGV[0] =~ Regex.isc_high
+elsif ARGV[0] =~ Regex.isc_high ####WORKING####
 	puts "#SANS Internet Storm Center HIGH confidence block list"
 	puts Msg.time_head
 	page = open(Urls.isc_high_url)
@@ -161,7 +155,7 @@ elsif ARGV[0] =~ Regex.isc_high
 		end
 	end
 
-elsif ARGV[0] =~ Regex.sucuri_iframe
+elsif ARGV[0] =~ Regex.sucuri_iframe ####WORKING####
 	page = Nokogiri::HTML(open(Urls.sucuri_url))
 	puts "#Title: Sucuri Research Labs Hidden iframes list"
 	puts Msg.time_head
@@ -180,7 +174,7 @@ elsif ARGV[0] =~ Regex.sucuri_iframe
    		end
 	end
 
-elsif ARGV[0] =~ Regex.sucuri_redirect
+elsif ARGV[0] =~ Regex.sucuri_redirect ####WORKING####
 	page = Nokogiri::HTML(open(Urls.sucuri_url))
 	puts "#Title: Sucuri Research Labs Redirect list"
 	puts Msg.time_head
@@ -196,7 +190,7 @@ elsif ARGV[0] =~ Regex.sucuri_redirect
    		end
 	end
 
-elsif ARGV[0] =~ Regex.sucuri_js
+elsif ARGV[0] =~ Regex.sucuri_js ####WORKING####
 	page = Nokogiri::HTML(open(Urls.sucuri_url))
 	puts "#Title: Sucuri Research Labs JavaScript list"
 	puts Msg.time_head
@@ -212,7 +206,7 @@ elsif ARGV[0] =~ Regex.sucuri_js
    		end
 	end
 
-elsif ARGV[0] =~ Regex.webins
+elsif ARGV[0] =~ Regex.webins ####WORKING####
 	page = Nokogiri::HTML(open(Urls.webins_url))
 	puts "#Title: Web Inspector Unsafe Site list"
 	puts Msg.time_head
@@ -222,7 +216,7 @@ elsif ARGV[0] =~ Regex.webins
    		end
 	end
 
-elsif ARGV[0] =~ Regex.tweet
+elsif ARGV[0] =~ Regex.tweet ####WORKING####
 	if ARGV[1] != nil
 		puts "#Title: Twitter-based intel from twitter.com/#{ARGV[1]}"
 		puts Msg.time_head
@@ -241,22 +235,28 @@ elsif ARGV[0] =~ Regex.tweet
 		end
 end
 
-
+####NOT WORKING YET####
 elsif ARGV[0] =~ Regex.ptank
-	if ARGV[1] != nil
-		puts "#Title: OpenDNS PhishTank Domains"
-		puts Msg.time_head
-		buffer = open(Urls.phishtank).read
- 		# convert JSON data into a hash
-		result = JSON.parse(buffer)
- 		puts result
+	puts "#Title: OpenDNS PhishTank Domains"
+	puts Msg.time_head
+	buffer = open(Urls.phishtank)
+	buffer.each do |x|
+		parsed = JSON.parse(x)
+		if parsed["url"] != nil
+			ap parsed["url"]
+		end
+			
+	end
+	#puts result.uniq.reject &:empty?
+		#result = JSON.parse(buffer)
+ 		#puts result.inspect
  		#trends = result['url']
 		#trends.each do |subject|
   		#	puts subject['url']
 		#end
-	end
+####NOT WORKING YET####	
 
-elsif ARGV[0] =~ Regex.all
+elsif ARGV[0] =~ Regex.all ####WORKING####
 	puts "Not yet implemented..."
 	
 else puts Msg.invalid
