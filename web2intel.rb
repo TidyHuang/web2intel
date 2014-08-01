@@ -10,7 +10,6 @@ require './lib/urls.rb'
 require './lib/regex.rb'
 require './lib/msg.rb'
 require 'public_suffix'
-require 'awesome_print'
 
 #require './lib/local_creds.rb'
 
