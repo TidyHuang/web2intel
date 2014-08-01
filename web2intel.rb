@@ -44,7 +44,7 @@ elsif ARGV[0] =~ Regex.mta ####WORKING####
 	  feed.items.each do |item|
 	  	page = Nokogiri::HTML(open(item.link))
 	  	page.xpath('//ul//li').each do |cell|
-	  		if PublicSuffix.valid?("#{cell.text.strip}") && "#{cell.text.strip}" !~ /\.zip/
+	  		if PublicSuffix.valid?("#{cell.text.strip}") && "#{cell.text.strip}" !~ /\.zip/ && "#{cell.text.strip}" !~ /\.google\.com/
 	  			zray << Regex.reg.match("#{cell.text.strip}").to_s
 	  		end
 	  	end
